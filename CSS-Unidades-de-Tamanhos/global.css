@@ -1,0 +1,32 @@
+html { /* HTML é o ROOT o pai de todos */
+    font-size: 100%;
+    scroll-behavior: smooth; /* Coloca automaticamente animação suave para direcionamento de páginas via scroll */
+}
+
+* {
+    margin: 0; 
+    padding: 0;
+}
+
+.fatherOne {
+    width: 100vw;
+    height: 100vh; /* 1vh é relativo a 1% do viewport height */
+    background-color: aqua;
+}
+
+.fatherTwo {
+    width: 100vw;
+    height: 100vh;
+    background-color: tomato;
+}
+
+.fatherThree {
+    width: 100vw;
+    height: 100vh;
+    background-color: royalblue;
+}
+
+p {
+    font-size: 1.25rem; /* O rem se comporta conforme o font-size do ROOT/HTML. O usuário que muda o tamanho da font
+    do navegador seja via mobile ou web sofrerá este comportamento relativo graças a unidade REM */
+}
