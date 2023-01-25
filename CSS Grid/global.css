@@ -1,0 +1,91 @@
+html, body {
+    margin: 0; 
+    padding: 0; 
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* Nada pode aumentar o tamanho da caixa do html e do body */
+}
+
+/*
+    O Flexbox é unidimensional e o Grid bidimensional. O Flexbox é ótimo para alinhamento de linhas como boxes que se repetem de cima 
+    pra baixo. Já o CSS Grid é ótimo para junção linha e coluna podendo encaixar qualquer elemento em qualquer canto independente se as boxes 
+    são iguais ou não. 
+
+    Flexbox - Consigo posicionar os items (filhos do display: flex) onde eu quiser na linha, 
+    e se a linha estourar consigo colocar os demais abaixo (flex-wrap)
+
+    Grid - Consigo posicionar os items (filhos do display: grid) onde eu quiser na linha e coluna. Cada um vai ficar examente no lugar 
+    indicado sem a necessidade de estourar linha para cair.
+*/
+
+.containerGrid {
+    background-color: midnightblue;
+ 
+    /*Inicia meu container grid */
+    display: grid;
+
+    /* 3flex 1flex -> (3 frações da minha coluna, 1 fração da minha coluna). É a quantidade que a primeira coluna vai ter a mais que a
+    a segunda. Parecido no material ui quando falamos que das 12 colunas ela vai assumir 8 e a outra 4 */
+    grid-template-columns: 3fr 1fr; 
+
+    /* Quantidade de linhas e seus tamanhos. Utilizamos aqui a unidade viewport height para definir. Linha header, linha central, linha footer */
+    grid-template-rows: 10vh 85vh 5vh;
+
+    /* Aqui através dessa três strings estamos criando 'variáveis' dizendo onde cada uma delas vai se posicionar na nossas divisòes acima. Estas variaveis serão usadas nos items filhos para indicar suas posições 
+       Veja que são duas colunas e três linhas conforme a intentação. Caso eu queira que uma das partes não seja preenchida posso colocar um '.' ou um nome qualquer e não utilizado! */
+    grid-template-areas: "header header"
+                         "main aside"
+                         "footer footer";
+    
+    /* Grid-gap é o espaço entre linhas e columas */
+    /* grid-gap: .3125rem; */
+}
+
+header {
+    background-color: antiquewhite;
+    
+    /* Veja que estamos usando a 'variavel' header criada no nosso grid-template-areas acima indicando que esse component/tag irá ocupar a posição ou posições do meu template
+       E assim por diante nas demais classes abaixo. */
+    grid-area: header;
+}
+
+main {
+    background-color: aqua;
+    grid-area: main;
+}
+
+aside {
+    background-color: aquamarine;
+    grid-area: aside;
+}
+
+footer {
+    background-color: blueviolet;
+    grid-area: footer;
+}
+
+.containerAlinhamentosDeGrid {
+    display: grid; 
+    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr); /* Repeat pode ser usado para repetir várias vezes o mesmo elemento. Em vez 1fr 1fr 1fr é só colocarmos repeat(3, 1fr)*/
+    grid-template-rows: repeat(3, 1fr);
+    height: 100vh;
+    background-color: black;
+
+    /* Podemos alinhar os ITEMS do Grid conforme o flexbox já faz também */
+    justify-items: end;
+    align-items: end;
+}
+
+/* O seletor ">" significa aqui "pegue todas divs dentro desta classe" */
+.containerAlinhamentosDeGrid > div {
+    width: 100px;
+    height: 100px;
+    background-color: violet;
+}
+
+.sereiAlinhadoAoCentroSomenteEu {
+    /* O justify-self e align-self é o próprio item dizendo onde ele vai ser posicionado */
+    justify-self: center;
+    align-self: center;
+}
