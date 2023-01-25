@@ -4,6 +4,16 @@ html, body {
     width: 100%;
     height: 100%;
     box-sizing: border-box; /* Nada pode aumentar o tamanho da caixa do html e do body */
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.containerGrid h2 {
+    text-align: center;
 }
 
 /*
@@ -70,7 +80,7 @@ footer {
     grid-template-columns: repeat(3, 1fr); /* Repeat pode ser usado para repetir várias vezes o mesmo elemento. Em vez 1fr 1fr 1fr é só colocarmos repeat(3, 1fr)*/
     grid-template-rows: repeat(3, 1fr);
     height: 100vh;
-    background-color: black;
+    background-color: midnightblue;
 
     /* Podemos alinhar os ITEMS do Grid conforme o flexbox já faz também */
     justify-items: end;
@@ -88,4 +98,28 @@ footer {
     /* O justify-self e align-self é o próprio item dizendo onde ele vai ser posicionado */
     justify-self: center;
     align-self: center;
+}
+
+.mediaQuerysContainer {
+    display: grid; 
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: stretch;
+    justify-items: stretch;
+    background-color: black;
+    grid-gap: 10px;
+}
+
+.mediaQuerysContainer > div {
+    background-color: tomato;
+}
+
+/* O que irá acontecer com meus componentes de 600px pra baixo? Isto é o que o media query faz. Ele interfere 
+   nas propriedades dos elementos dependendo da condição colocada */
+@media (max-width: 600px) { 
+    .mediaQuerysContainer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
 }
