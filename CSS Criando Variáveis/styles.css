@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root é a raiz de todo o html 
+   Criaremos variáveis nele para uso 
+   no CSS 
+*/
+:root {
+ --white: #fff;
+ --gray-100: #e1e1e6;
+ --gray-300: #c4c4cc;
+ --gray-400: #8d8d99;
+}
+
+body {
+    background: var(--gray-400);
+    color: var(--gray-100);
+}
