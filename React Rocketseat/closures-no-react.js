@@ -13,7 +13,7 @@ export default function closuresNoReact() {
         });
 
         // Aqui o valor do updatedState vai ser 1 e não 0
-        // pois ele está pegando o valor mais atualizado que venho
+        // pois ele está pegando o valor mais atualizado que vem
         // do setCount anterior 
         setCount((updatedState) => {
             return updatedState + 1;
