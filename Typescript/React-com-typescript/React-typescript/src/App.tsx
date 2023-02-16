@@ -1,11 +1,17 @@
-import { useState } from 'react'
+import { Post } from './components/Post'
 
 function App() {
-  const [count, setCount] = useState(0)
+  function sendMessageStory(story: string): void {
+    console.log(story)
+  }
 
   return (
     <div className="App">
-      
+      <Post
+        story={sendMessageStory}
+        author={{ name: "Matheus" }}
+        content={[{ type: "link", content: "Olá mundo" }]}
+      />
     </div>
   )
 }
