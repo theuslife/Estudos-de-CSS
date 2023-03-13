@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent } from "react";
-
 interface Author {
     name: String;
     role?: string; //Quando colocamos o interrogação estamos deixando claro que esta propriedade da nossa interface/objeto não é obrigatório ser passado onde quer que seja usado
@@ -12,14 +11,15 @@ interface Content {
 }
 
 interface PostProps {
-    author: Author;
+    author?: Author;
     story: (comment: string) => void // Precisamos declarar o tipo de retorno da função. Ela pode ser Void caso não retorne nada
     content: Content[];  //Array de Content (Content é uma interface declarada acima, logo a tradução seria "Um array de objetos contendo type e content")
     juridicPerson?: boolean;  //Propriedade opcional
 }
 
-export function Post({ author, content, story }: PostProps) {
-    
+//Colocamos um nome default porque apesar do Author ser uma propriedade não obrigatória estamos usando ela neste component. 
+export function Post({ author = { name: "nameDefault" }, content, story }: PostProps) {
+
     function handleDivClick(event: FormEvent) { //Event do tipo FormEvent
         event.preventDefault();
     }
@@ -28,7 +28,7 @@ export function Post({ author, content, story }: PostProps) {
         event.target.value
     }
 
-    function handleStoryClick(){
+    function handleStoryClick() {
         story("Olá tudo bem?");
     }
 
