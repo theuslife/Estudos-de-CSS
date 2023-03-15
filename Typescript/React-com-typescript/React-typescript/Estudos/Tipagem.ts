@@ -17,3 +17,16 @@ pontos = [5,4,7];
 // Segunda forma de declaração array de strings
 let users: Array<string>; 
 users = ['5','4','7'];
+
+
+// Posso criar um "tipo" para mim 
+// para que não haja repetição de múltiplos tipos em diferente variáveis
+// sempre crie tipos com letra maiúscula
+type MeuTipo = string | number
+
+let adminId: MeuTipo;
+let userId: MeuTipo;
+
+adminId = 15;
+adminId = "15";
+adminId = true; //Não é do tipo meuTipo
